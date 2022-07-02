@@ -7,32 +7,24 @@ assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**어떤 버그가 발생했나요?**
+정확히 어떤 현상이 일어났는지 기술해 주시기 바랍니다.
 
-**To Reproduce**
-Steps to reproduce the behavior:
+**버그 발생 방법**
+버그를 다시 일으키기 위해서는:
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
-4. See error
+4. See erro법
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**원하던 결과**
+기존에 원했던 결과를 적어주세요.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**증빙 내용**
+스크린샷이 가능하다면 스크린샷을 올리거나,
+```
+로그를 떠와 codeblock에 올려도 괜찮습니다.
+```
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+**추가사항**
+추가할 내용이 있다면 작성해 주세요.
