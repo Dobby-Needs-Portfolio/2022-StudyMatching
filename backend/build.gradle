@@ -12,9 +12,35 @@ repositories {
 	mavenCentral()
 }
 
+configurations.all {
+	exclude group:'org.springframework.boot', module:'spring-boot-starter-logging'
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-devtools:2.7.1'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.0'
+
+	// lombok
+	implementation 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+	// log4j2
+	implementation 'org.springframework.boot:spring-boot-starter-log4j2:2.7.0'
+
+	// jackson dataformat serializer
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.3'
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.3'
+
+	// Junit4
+	testImplementation(platform('org.junit:junit-bom:5.8.2'))
+	testImplementation('org.junit.jupiter:junit-jupiter')
+	testImplementation('junit:junit:4.13.2')
+	testImplementation 'org.springframework:spring-test:5.3.20'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
+	testImplementation 'org.assertj:assertj-core:3.23.1'
+
 }
 
 tasks.named('test') {

@@ -1,0 +1,11 @@
+version: '3'
+services:
+  debug:
+    build: ./docker/debug
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+  release:
+    build: ./docker/release
+    ports:
+      - "8080:8080"
