@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="INFO">
+    <Properties>
+        <Property name="consoleOutputPattern">
+            %d{ISO8601} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow} - %msg%n%throwable
+        </Property>
+        <Property name="fileOutputPattern">
+            %d{ISO8601} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow} - %msg%n%throwable
+        </Property>
+        <Property name="filename">
+            logs/webapp.log
+        </Property>
+        <Property name="filenamePattern">
+            log-%d{yyyy-MM-dd}.log
+        </Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${consoleOutputPattern}"/>
+        </Console>
+        <RollingFile name="file" target="SYSTEM_OUT" fileName="${filename}" filePattern="${filenamePattern}">
+            <PatternLayout pattern="${fileOutputPattern}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+            </Policies>
+            <DefaultRolloverStrategy max="10" fileIndex="min" />
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="INFO" addictivity="false">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="file"/>
+        </Root>
+    </Loggers>
+</Configuration>
