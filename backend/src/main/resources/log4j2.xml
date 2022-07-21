@@ -18,7 +18,7 @@
 
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="${consoleOutputPattern}"/>
+            <PatternLayout pattern="${consoleOutputPattern}" disableAnsi="false"/>
         </Console>
         <RollingFile name="file" target="SYSTEM_OUT" fileName="${filename}" filePattern="${filenamePattern}">
             <PatternLayout pattern="${fileOutputPattern}" />
@@ -27,6 +27,8 @@
             </Policies>
             <DefaultRolloverStrategy max="10" fileIndex="min" />
         </RollingFile>
+        <Sentry name="Sentry"
+                dsn="{env:SENTRY_DSN}" />
     </Appenders>
 
     <Loggers>
