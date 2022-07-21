@@ -12,7 +12,7 @@
             logs/webapp.log
         </Property>
         <Property name="filenamePattern">
-            log-%d{yyyy-MM-dd}.log
+            logs/log-%d{yyyy-MM-dd}.log
         </Property>
     </Properties>
 
