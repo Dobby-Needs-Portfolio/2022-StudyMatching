@@ -21,6 +21,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-devtools:2.7.1'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.0'
+	implementation 'org.springframework.boot:spring-boot-starter-aop:2.7.0'
+
+	// AspectJ
+	implementation 'org.aspectj:aspectjweaver:1.9.9.1'
+	implementation 'org.aspectj:aspectjrt:1.9.9.1'
 
 	// lombok
 	implementation 'org.projectlombok:lombok:1.18.24'
@@ -32,6 +37,10 @@ dependencies {
 	// jackson dataformat serializer
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.3'
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.3'
+
+	// Sentry
+	implementation 'io.sentry:sentry-log4j2:6.3.0'
+	implementation 'io.sentry:sentry-spring-boot-starter:6.3.0'
 
 	// Junit4
 	testImplementation(platform('org.junit:junit-bom:5.8.2'))
