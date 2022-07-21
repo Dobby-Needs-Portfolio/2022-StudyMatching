@@ -33,6 +33,10 @@ dependencies {
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.3'
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.3'
 
+	// Sentry
+	implementation 'io.sentry:sentry-log4j2:6.2.1'
+	implementation 'io.sentry:sentry-spring-boot-starter:6.2.1'
+
 	// Junit4
 	testImplementation(platform('org.junit:junit-bom:5.8.2'))
 	testImplementation('org.junit.jupiter:junit-jupiter')
