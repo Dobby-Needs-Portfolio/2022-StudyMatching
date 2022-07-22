@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.7.1'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'checkstyle'
 }
 
 group = 'deu.ac.kr'
@@ -14,6 +15,12 @@ repositories {
 
 configurations.all {
 	exclude group:'org.springframework.boot', module:'spring-boot-starter-logging'
+}
+
+checkstyle {
+	maxWarnings = 0
+	ignoreFailures = true
+	configFile = file("${rootDir}/config/gpu-im-checkstyle.xml")
 }
 
 dependencies {
