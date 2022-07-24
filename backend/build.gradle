@@ -19,7 +19,6 @@ configurations.all {
 
 checkstyle {
 	maxWarnings = 0
-	ignoreFailures = true
 	configFile = file("${rootDir}/config/gpu-im-checkstyle.xml")
 }
 
