@@ -10,7 +10,6 @@ jobs:
       - checkout
       - run: ./backend/gradlew build
 
-
   lint:
     docker:
       - image: azul/zulu-openjdk-alpine:18.0.2-18.32.11-jre
