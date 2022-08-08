@@ -8,7 +8,7 @@ jobs:
     steps:
 #     start gradle wrapper to build the project
       - checkout
-      - run: ./backend/gradlew build
+      - run: cd ./backend && ./gradlew build
 
   lint:
     docker:
@@ -16,7 +16,7 @@ jobs:
     steps:
 #     start gradle wrapper to check lint statue of the project
       - checkout
-      - run: ./backend/gradlew checkstyleMain checkstyleTest
+      - run: .cd ./backend && ./gradlew checkstyleMain checkstyleTest
 
   test:
     docker:
@@ -24,7 +24,7 @@ jobs:
     steps:
 #     start gradle wrapper to test the project
       - checkout
-      - run: ./backend/gradlew test
+      - run: cd ./backend && ./gradlew test
 
 workflows:
   pull_request:
