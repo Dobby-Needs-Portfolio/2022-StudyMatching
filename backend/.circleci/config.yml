@@ -1,0 +1,27 @@
+
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: azul/zulu-openjdk-alpine:18.0.2-18.32.11-jre
+    steps:
+#     start gradle wrapper to build the project
+      - checkout
+      - run: ./gradlew build
+
+  lint:
+    docker:
+      - image: azul/zulu-openjdk-alpine:18.0.2-18.32.11-jre
+    steps:
+#     start gradle wrapper to check lint statue of the project
+      - checkout
+      - run: ./gradlew checkstyleMain checkstyleTest
+
+  test:
+    docker:
+      - image: azul/zulu-openjdk-alpine:18.0.2-18.32.11-jre
+    steps:
+#     start gradle wrapper to test the project
+      - checkout
+      - run: ./gradlew test
