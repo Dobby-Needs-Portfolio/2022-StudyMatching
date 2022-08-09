@@ -6,11 +6,8 @@ jobs:
     docker:
       - image: mina1316/azul-zulu-openjdk-alpine-git:11-jre 
     steps:
-#     start gradle wrapper to build the project
       - run: git clone -b develop-backend https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
-      - run: ls
       - run: cd ./backend && ./gradlew assemble
-
   lint:
     docker:
       - image: mina1316/azul-zulu-openjdk-alpine-git:11-jre
@@ -26,6 +23,7 @@ jobs:
 #     start gradle wrapper to test the project
       - run: git clone -b develop-backend https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
       - run: cd ./backend && ./gradlew test --scan
+
 
 workflows:
   pull_request:
