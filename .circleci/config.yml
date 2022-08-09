@@ -28,15 +28,6 @@ jobs:
 workflows:
   pull_request:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: develop-backend
-      - lint:
-          filters:
-            branches:
-              only: develop-backend
-      - test:
-          filters:
-            branches:
-              only: develop-backend
+      - build
+      - lint
+      - test
