@@ -43,7 +43,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-devtools:2.7.1'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.0'
 	implementation 'org.springframework.boot:spring-boot-starter-aop:2.7.0'
-	implementation 'org.springframework.boot:spring-data-jpa:2.7.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 
