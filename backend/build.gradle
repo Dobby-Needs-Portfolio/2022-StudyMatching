@@ -43,18 +43,31 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-devtools:2.7.1'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.0'
 	implementation 'org.springframework.boot:spring-boot-starter-aop:2.7.0'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 
 	// AspectJ
 	implementation 'org.aspectj:aspectjweaver:1.9.9.1'
 	implementation 'org.aspectj:aspectjrt:1.9.9.1'
 
+	// AssertJ
+	testImplementation('org.assertj:assertj-core:3.23.1')
+
 	// lombok
-	implementation 'org.projectlombok:lombok:1.18.24'
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	testCompileOnly 'org.projectlombok:lombok:1.18.24'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 
 	// log4j2
 	implementation 'org.springframework.boot:spring-boot-starter-log4j2:2.7.0'
+
+	// MariaDB JDBC Driver
+	implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.6'
+	testImplementation 'org.mariadb.jdbc:mariadb-java-client:3.0.6'
+
+	// MariaDB4J
+	testImplementation 'ch.vorburger.mariaDB4j:mariaDB4j-springboot:2.5.3'
 
 	// jackson dataformat serializer
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.3'
