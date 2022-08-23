@@ -8,7 +8,8 @@ jobs:
     working_directory: ~/project
     steps:
       - run: git clone https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
-      - run: git reset --hard $CIRCLE_SHA1
+      - run: git pull origin pull/$CIRCLE_PR_NUMBER/head:fetch-branch
+      - run: git switch fetch-branch
       - run: cd ./backend && ./gradlew assemble
   lint:
     docker:
@@ -16,7 +17,8 @@ jobs:
     steps:
 #     start gradle wrapper to check lint statue of the project
       - run: git clone https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
-      - run: git reset --hard $CIRCLE_SHA1
+      - run: git pull origin pull/$CIRCLE_PR_NUMBER/head:fetch-branch
+      - run: git switch fetch-branch
       - run: cd ./backend && ./gradlew checkstyleMain checkstyleTest
 
   test:
@@ -25,7 +27,8 @@ jobs:
     steps:
 #     start gradle wrapper to test the project
       - run: git clone https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
-      - run: git reset --hard $CIRCLE_SHA1
+      - run: git pull origin pull/$CIRCLE_PR_NUMBER/head:fetch-branch
+      - run: git switch fetch-branch
       - run: cd ./backend && ./gradlew test --scan
 
 
