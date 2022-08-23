@@ -4,24 +4,28 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: mina1316/azul-zulu-openjdk-alpine-git:11-jre 
+      - image: mina1316/azul-zulu-openjdk-ubuntu-ci:11 
+    working_directory: ~/project
     steps:
-      - run: git clone -b develop-backend https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git clone https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git reset --hard $CIRCLE_SHA1
       - run: cd ./backend && ./gradlew assemble
   lint:
     docker:
       - image: mina1316/azul-zulu-openjdk-alpine-git:11-jre
     steps:
 #     start gradle wrapper to check lint statue of the project
-      - run: git clone -b develop-backend https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git clone https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git reset --hard $CIRCLE_SHA1
       - run: cd ./backend && ./gradlew checkstyleMain checkstyleTest
 
   test:
     docker:
-      - image: mina1316/azul-zulu-openjdk-alpine-git:11-jre
+      - image: mina1316/azul-zulu-openjdk-ubuntu-ci:11 
     steps:
 #     start gradle wrapper to test the project
-      - run: git clone -b develop-backend https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git clone https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git reset --hard $CIRCLE_SHA1
       - run: cd ./backend && ./gradlew test --scan
 
 
