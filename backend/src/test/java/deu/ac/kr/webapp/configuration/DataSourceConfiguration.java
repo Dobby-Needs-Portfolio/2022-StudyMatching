@@ -1,6 +1,7 @@
 package deu.ac.kr.webapp.configuration;
 
 import ch.vorburger.exec.ManagedProcessException;
+import ch.vorburger.mariadb4j.DBConfiguration;
 import ch.vorburger.mariadb4j.DBConfigurationBuilder;
 import ch.vorburger.mariadb4j.springframework.MariaDB4jSpringService;
 import javax.sql.DataSource;
@@ -35,6 +36,9 @@ public class DataSourceConfiguration {
 
     md4jService.setDefaultPort(port);
     md4jService.setDefaultDataDir(dataDirectory);
+    md4jService.getConfiguration()
+            .addArg("--character-set-server=utf8mb4")
+            .addArg("--user=root");
     md4jService.start();
     md4jService.getDB().createDB(database);
     return md4jService;

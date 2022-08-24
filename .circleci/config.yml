@@ -4,25 +4,35 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: mina1316/azul-zulu-openjdk-alpine-git:11-jre 
+      - image: mina1316/azul-zulu-openjdk-ubuntu-ci:11
+    working_directory: ~/project
     steps:
-      - run: git clone -b develop-backend https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git clone https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git switch develop-backend
+      - run: git pull origin pull/$CIRCLE_PR_NUMBER/head:fetch-branch
+      - run: git switch fetch-branch
       - run: cd ./backend && ./gradlew assemble
   lint:
     docker:
-      - image: mina1316/azul-zulu-openjdk-alpine-git:11-jre
+      - image: mina1316/azul-zulu-openjdk-ubuntu-ci:11
     steps:
 #     start gradle wrapper to check lint statue of the project
-      - run: git clone -b develop-backend https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git clone https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git switch develop-backend
+      - run: git pull origin pull/$CIRCLE_PR_NUMBER/head:fetch-branch
+      - run: git switch fetch-branch
       - run: cd ./backend && ./gradlew checkstyleMain checkstyleTest
 
   test:
     docker:
-      - image: mina1316/azul-zulu-openjdk-alpine-git:11-jre
+      - image: mina1316/azul-zulu-openjdk-ubuntu-ci:11
     steps:
 #     start gradle wrapper to test the project
-      - run: git clone -b develop-backend https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
-      - run: cd ./backend && ./gradlew test --scan
+      - run: git clone https://github.com/Dobby-Needs-Portfolio/2022-StudyMatching.git .
+      - run: git switch develop-backend
+      - run: git pull origin pull/$CIRCLE_PR_NUMBER/head:fetch-branch
+      - run: git switch fetch-branch
+      - run: cd ./backend && ./gradlew test --scan -DmariaDB4j.unpack=false -DmariaDB4j.baseDir=/usr/bin/mariadb
 
 
 workflows:
