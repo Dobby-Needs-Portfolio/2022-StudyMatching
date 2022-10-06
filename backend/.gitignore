@@ -39,3 +39,6 @@ out/
 application.properties
 
 **/*.log
+
+## For Flyway Integration with Spring Boot
+generated_scheme.sql
